@@ -1,0 +1,52 @@
+<ngx-loading
+[show]="getCargando()">
+</ngx-loading>
+
+<h2>{{ getTituloBusqueda() }}</h2>
+
+<app-caja-busqueda
+  [placeholder]="getPlaceHolder()"
+  (buscar)="buscar($event)">
+</app-caja-busqueda>
+
+<div *ngIf="getBuscado()" class="resultado mx-1 p-2">
+
+    <div class="row" *ngIf="getError()">
+      <div class="col">
+        <div class="alert alert-danger aviso-error" role="alert">
+          Se ha producido un error
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!getTotal()">
+      <div class="col">
+        <div class="alert alert-info" role="alert">
+          No se ha encontrado ningún registro
+        </div>
+      </div>
+    </div>
+
+    <app-tabla-listado
+      *ngIf="getTotal()"
+      [columnas]="columnasListado"
+      [datos]="getListado()"
+      [campoOrden]="campoOrdenListado"
+      [acciones]="accionesListado"
+      (ejecutar)="ejecutarAccion($event)"
+      [titulo]="tituloListado">
+
+    </app-tabla-listado>
+
+    <app-barra-paginacion
+      *ngIf="getMostrarPaginacion()"
+      [siguientes]="getEnlaceSiguientes()"
+      [anteriores]="getEnlaceAnteriores()"
+      (paginar)="paginar($event)"
+      [total]="getTotal()"
+      [porPagina]="getPorPagina()"
+      [paginas]="getPaginas()"
+      [pagina]="pagina">
+    </app-barra-paginacion>
+
+  </div>

@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.card-class{
+    margin: 3%;
+    padding: 13px;
+    width: 18%;
+    text-align: left;
+    float: left;
+    align-items: center;
+}
+
+.card-btn {
+    background-color: rgb(243, 243, 243);
+}

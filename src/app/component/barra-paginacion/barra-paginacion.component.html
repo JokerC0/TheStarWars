@@ -1,0 +1,34 @@
+<div class="row py-3">
+  <div class="col text-center">
+      {{ total }} registros. Página {{ pagina }} de {{ paginas }}
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-6 text-center">
+
+    <button
+      [disabled]="deshabilitar('anteriores')"
+      type="button"
+      class="btn btn-block btn-info"
+      (click)="pasarPagina('anteriores')">
+      <i class="fa fa-caret-left" aria-hidden="true"></i>
+      Anteriores
+    </button>
+
+  </div>
+
+  <div class="col-6 text-center">
+
+    <button
+      [disabled]="deshabilitar('siguientes')"
+      type="button"
+      class="btn btn-block btn-info"
+      (click)="pasarPagina('siguientes')">
+      Siguientes
+      <i class="fa fa-caret-right" aria-hidden="true"></i>
+    </button>
+
+  </div>
+
+</div>

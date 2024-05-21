@@ -1,0 +1,40 @@
+<div class="fondo">
+
+  <ngx-loading [show]="!mostrar">
+  </ngx-loading>
+
+  <div class="container" [hidden]="!mostrar">
+
+    <div class="row my-2">
+
+      <div class="col-12 px-0">
+
+        <button
+          type="button"
+          class="btn btn-warning btn-lg btn-block"
+          (click)="cerrarVentana()">
+          <i class="fa fa-times mr-2" aria-hidden="true"></i>
+          Cerrar
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-12 ventana">
+
+        <app-ficha
+          [tipo]="tipo"
+          [info]="item"
+          (cargado)="mostrarComponentes()">
+        </app-ficha>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

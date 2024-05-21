@@ -1,0 +1,14 @@
+/node_modules
+.angular/cache/
+
+/dist
+/tmp
+/out-tsc
+
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace

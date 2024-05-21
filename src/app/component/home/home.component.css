@@ -1,0 +1,12 @@
+.main-container {
+    margin: 5%;
+}
+
+.main-header{
+    display: flex;
+    justify-content: center;
+}
+
+.main-header h1 {
+    font-weight: 500;    
+}

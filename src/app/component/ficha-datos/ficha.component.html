@@ -1,0 +1,68 @@
+<div
+  class="ficha-datos my-2 p-2"
+  *ngIf="!cargando">
+
+  <div class="row" *ngFor="let item of getListaCampos()">
+
+    <div class="col-3 text-right">
+      {{ item.titulo }}:
+      <p *ngIf="muestraSubtitulo(item)">
+        {{ item.subtitulo }}
+      </p>
+      <p *ngIf="muestraTextoMasInformacion(item)">
+        (Pulse para ver más información)
+      </p>
+    </div>
+
+    <div
+      *ngIf="item.tipo === 'texto'"
+      class="col-9">
+      {{ info[item.campo] }} {{item.sufijoValor}}
+    </div>
+
+    <div
+      *ngIf="item.tipo === 'fecha'"
+      class="col-9">
+      {{ info[item.campo] | formateaFechas }}
+    </div>
+
+    <div
+      *ngIf="item.tipo === 'valores'"
+      class="col-9" [innerHTML]="info[item.campo] | listaValores">
+    </div>
+
+    <div
+      *ngIf="item.tipo === 'hogar'"
+      class="col-9"
+      [ngClass]="{ 'clicable' : muestraTextoMasInformacion(item) }"
+      (click)="abrirHogar()">
+      {{ getHogarData() }}
+    </div>
+
+    <div class="col-9" *ngIf="item.tipo === 'lista'">
+
+      <div
+        class="alert alert-info"
+        role="alert"
+        *ngIf="!mostrarLista(item.campo)">
+        No hay registros para listar
+      </div>
+
+      <table
+        class="table table-striped"
+        *ngIf="mostrarLista(item.campo)">
+        <tbody>
+          <tr  *ngFor="let itemLista of getLista(item.campo)">
+            <td [ngClass]="{ 'clicable' : muestraTextoMasInformacion(item) }"
+            (click)="abrirFicha(item.campo, itemLista)">
+              {{ itemLista[item.campoLista] }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

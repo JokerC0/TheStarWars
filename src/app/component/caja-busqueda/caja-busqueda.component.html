@@ -1,0 +1,25 @@
+ <div class="row" class="caja-busqueda">
+  <div class="col">
+    <div class="input-group">
+      <input type="text" 
+        class="form-control" 
+        [placeholder]="placeholder"        
+        name="textoBusqueda"
+        [(ngModel)]="textoBusqueda">
+        <span class="input-group-btn">
+          <button 
+            class="btn btn-primary" 
+            type="button"
+            (click)="ejecutaBusqueda()">
+            <i class="fa fa-search" aria-hidden="true"></i>Buscar
+          </button>
+        </span>
+    </div>
+    <div
+       class="alert alert-danger aviso-error" 
+      role="alert"
+      *ngIf="error">
+      Se ha de indicar un texto para buscar
+    </div>
+  </div>
+</div>

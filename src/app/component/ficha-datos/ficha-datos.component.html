@@ -1,0 +1,21 @@
+<ngx-loading [show]="cargando">
+</ngx-loading>
+
+<div class="container" [hidden]="cargando">
+
+  <app-ficha
+    [tipo]="tipo"
+    [info]="item"
+    (cargado)="datosCargados()"
+    clicable="true"
+    (masInfo)="masInfo($event)">
+  </app-ficha>
+
+  <app-boton-volver *ngIf="urlRetorno" [tipo]="tipo"></app-boton-volver>
+
+</div>
+
+<app-popup-info
+  *ngIf="mostrarPopUp"
+  (cerrar)="cerrarMasInfo()">
+</app-popup-info>
